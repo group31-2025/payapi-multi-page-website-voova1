@@ -5,22 +5,31 @@
   margin-left: auto;
   padding: 14px 24px;
   border-radius: 24px;
-  background-color: $Dark-Pink;
-  color: $Link-Water-White;
+  border: none;
+  background-color: $dark-pink;
+  color: $link-water-white;
   font-size: $Psize;
   font-weight: 700;
-  font-family: $Sans;
-  border: none;
+  font-family: $sans;
 
   &:hover {
-    background-color: $Charm-Pink-Actives;
+    background-color: $charm-pink;
   }
+}
+
+@mixin regularP($text-color) {
+  color: $text-color;
+  font-family: $sans;
+  font-size: $Psize;
+  font-weight: 400;
 }
 
 header {
   width: 100%;
   min-height: 200px;
   padding: 40px 165px 82px 165px;
+  position: relative;
+  overflow: hidden;
 
   @media (max-width: 992px) {
     padding: 40px 40px 82px 40px;
@@ -46,16 +55,22 @@ header {
 
       li {
         a {
-          color: $San-Juan-Blue;
-          font-family: $Sans;
+          color: $san-juan-blue;
+          font-family: Public Sans;
           font-size: $Psize;
           font-weight: 700;
         }
       }
     }
-
     .btn {
-      @include pinkButton();
+      margin-left: auto;
+      padding: 14px 24px;
+      background-color: $dark-pink;
+      border-radius: 24px;
+      color: $link-water-white;
+      font-family: $sans;
+      font-size: $Psize;
+      font-weight: 700;
 
       @media (max-width: 700px) {
         display: none;
@@ -73,99 +88,207 @@ header {
   }
 
   section {
-    margin-top: 74px;
+    margin-top: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     @media (max-width: 992px) {
-      margin-top: 48px;
       flex-direction: column-reverse;
       text-align: center;
+
       gap: 48px;
+      margin-top: 48px;
     }
 
     .left-side {
       max-width: 546px;
+
       @media (max-width: 992px) {
         display: flex;
         flex-direction: column;
+        text-align: center;
+        align-items: center;
       }
+
       h1 {
-        color: $San-Juan-Blue;
-        font-family: $Serif;
+        font-family: $serif;
         font-size: $H1size;
-        font-weight: 400;
-        line-height: 72px;
+        font-weight: 700;
+        line-height: 77px;
         letter-spacing: -0.554px;
+        color: $san-juan-blue;
+
         @media (max-width: 992px) {
           font-size: 48px;
         }
+
         @media (max-width: 700px) {
           font-size: 32px;
         }
       }
-
       form {
         max-width: 445px;
         margin: 21px 0 16px 0;
-        background-color: $Link-Water-White;
+        background-color: $link-water-white;
         border-radius: 24px;
         display: flex;
         justify-content: space-between;
-        box-shadow: 10px 10px 25px rgba(54, 83, 107, 0.25);
+
         @media (max-width: 700px) {
           flex-direction: column;
-          background-color: $Body-Bg;
+          background-color: $body-bg;
           box-shadow: unset;
           gap: 16px;
           width: 100%;
         }
         input[type="text"] {
-          background-color: $Link-Water-White;
-          color: $Light-San-Juan-Blue;
+          background-color: $link-water-white;
+          color: $light-san-juan-blue;
           padding: 14px 27px;
           border-radius: 24px;
           font-size: $Psize;
-          font-family: $Sans;
+          font-family: $sans;
           border: none;
           outline: none;
 
-          @media (max-width: 992px) {
+          @media (max-width: 700px) {
             width: 100%;
           }
         }
-
         input[type="submit"] {
           @include pinkButton();
-        }
-        @media (max-width: 992px) {
-          width: 100%;
+
+          @media (max-width: 700px) {
+            width: 100%;
+          }
         }
       }
       p {
-        color: $Light-San-Juan-Blue;
-        font-family: $Sans;
-        font-size: $Psize;
-        font-weight: 400;
+        @include regularP($light-san-juan-blue);
         margin-left: 27px;
+
         span {
           font-weight: 700;
         }
+
         @media (max-width: 992px) {
           margin-left: 0;
         }
       }
     }
   }
+
   .first-circle {
     position: absolute;
     top: -172px;
     right: -140px;
     z-index: -1;
+
     @media (max-width: 992px) {
       left: 50%;
       transform: translate(-50%);
       top: -450px;
+    }
+  }
+}
+main {
+  .partners {
+    width: 100%;
+    min-height: 100px;
+    background-color: $mirage-blue;
+    padding: 93px 165px 107px 165px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: 992px) {
+      flex-direction: column-reverse;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    #second-circle {
+      position: absolute;
+      top: -359px;
+      left: -235px;
+      @media (max-width: 992px) {
+        top: -548px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+    .partners-left-side {
+      max-width: 445px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      @media (max-width: 992px) {
+        align-items: center;
+        margin-top: 72px;
+      }
+      h2 {
+        color: $body-bg;
+        font-family: $serif;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 56px;
+        letter-spacing: -0.369px;
+      }
+      @media (max-width: 700px) {
+        font-size: 32px;
+      }
+      p {
+        @include regularP($link-water-white);
+        opacity: 0.7;
+        line-height: 28px;
+      }
+
+      a {
+        color: #fff;
+        padding: 16px 32px;
+        border-radius: 24px;
+        border: 1px solid #fff;
+        width: fit-content;
+        font-size: $Psize;
+        font-family: $sans;
+      }
+    }
+
+    .partners-logos {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      @media (max-width: 700px) {
+        flex-direction: row;
+        width: 327px;
+        justify-content: space-between;
+      }
+      .top-logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        @media (max-width: 700px) {
+          flex-direction: column;
+          gap: 70px;
+        }
+      }
+      .bot-logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: 700px) {
+          flex-direction: column;
+          gap: 70px;
+        }
+      }
     }
   }
 }
