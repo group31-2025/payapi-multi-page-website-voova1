@@ -23,7 +23,21 @@
   font-size: $Psize;
   font-weight: 400;
 }
-
+@mixin flex($direction: row, $align: flex-start, $justify: flex-start) {
+  display: flex;
+  flex-direction: row;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin regularH2($test-color) {
+  font-family: $serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: -0.369px;
+  color: $test-color;
+}
 header {
   width: 100%;
   min-height: 200px;
@@ -288,6 +302,82 @@ main {
           flex-direction: column;
           gap: 70px;
         }
+      }
+    }
+  }
+}
+.main-content {
+  width: 100%;
+  min-height: 100px;
+  padding: 143px 165px 96px 165px;
+
+  @media (max-width: 992px) {
+  }
+
+  @media (max-width: 700px) {
+    padding: 80px 24px;
+  }
+  .implementation {
+    width: 100%;
+    min-height: 50px;
+
+    @include flex(row, center, space-evenly);
+
+    @media (max-width: 992px) {
+      @include flex(column, center, center);
+    }
+    img {
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+    }
+    .implement {
+      max-width: 445px;
+
+      @media (max-width: 992px) {
+        text-align: center;
+        max-width: 573px;
+      }
+
+      h2 {
+        @include regularH2($san-juan-blue);
+        margin-bottom: 24px;
+      }
+      p {
+        @include regularP($light-san-juan-blue);
+        line-height: 28px;
+      }
+    }
+  }
+
+  .ui-ux {
+    width: 100%;
+
+    @include flex(row, center, space-evenly);
+
+    @media (max-width: 992px) {
+      @include flex(column-reverse, center, center);
+      margin-top: 100px;
+    }
+    img {
+      @media (max-width: 700px) {
+        max-width: 100%;
+      }
+    }
+    .ui-ux-info {
+      max-width: 445px;
+      @media (max-width: 992px) {
+        max-width: 573px;
+        text-align: center;
+      }
+
+      h2 {
+        @include regularH2($san-juan-blue);
+        margin-bottom: 24px;
+      }
+      p {
+        @include regularP($light-san-juan-blue);
+        line-height: 28px;
       }
     }
   }
